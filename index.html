@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>GIN Bakers</title>
+
+      <link rel="icon" href="homeIcon.png">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+      <link rel="stylesheet" href="style.css">
+   </head>
+   <body>
+      <header class="header">
+         <section class="flex">
+            <h1><a href="#home" class="logo">GIN Bakers</a></h1>
+            <nav class="navbar">
+               <a href="#home">Home</a>
+               <a href="#menu">Signature Menu</a>
+               <a href="#about">About Us</a>
+               <a href="#order">Order</a>
+               <a href="#faq">FAQ</a>
+            </nav>
+            <div class="icons">
+               <div id="menu-btn" class="fas fa-bars"></div>
+               <div id="user-btn" class="fas fa-user"></div>
+               <div id="order-btn" class="fas fa-box"></div>
+               <div id="cart-btn" class="fas fa-shopping-cart"><span>(3)</span></div>
+            </div>
+         </section>
+      </header>
+
+      <div class="user-account">
+         <section>
+            <div id="close-account"><span>Close</span></div>
+            <div class="display-orders">
+               <p>Life is too short, eat the cookies first.</p>
+            </div>
+            <div class="user">
+               <p><span>Log in now!</span></p>
+            </div>
+            <div class="flex">
+               <form action="" method="post" id="loginForm">
+                  <h3>Login now</h3>
+                  <input type="email" name="email" required class="box" placeholder="Email" maxlength="50">
+                  <input type="password" name="pass" required class="box" placeholder="Password" maxlength="20">
+                  <input type="submit" value="login now" name="login" class="btn">
+               </form>
+               <script>
+                  document.getElementById("loginForm").addEventListener("submit", function(event) {
+                     event.preventDefault();
+                     const email = event.target.email.value;
+                     const pwd = event.target.pass.value;
+                     if (email && pwd) {
+                        alert("You are login successfully!");
+                        event.target.reset();
+                     }
+                  });
+               </script>
+               <form action="" method="post" id="regForm">
+                  <h3>Register now</h3>
+                  <input type="text" name="name" required class="box" placeholder="Name" maxlength="20">
+                  <input type="email" name="email" required class="box" placeholder="Email" maxlength="50">
+                  <input type="password" name="pass" required class="box" placeholder="Password" maxlength="20">
+                  <input type="password" name="cpass" required class="box" placeholder="Confirm password" maxlength="20">
+                  <input type="submit" value="register now" name="register" class="btn">
+               </form>
+
+               <script>
+                  document.getElementById("regForm").addEventListener("submit", function(event) {
+                     event.preventDefault();
+                  
+                     const name = event.target.name.value;
+                     const email = event.target.email.value;
+                     const pwd = event.target.pass.value;
+                     const cpwd = event.target.cpass.value;
+                        
+                     if (name && email && pwd && cpwd) {
+                        if (pwd === cpwd) {
+                        alert("Your account is registered");
+                        event.target.reset();
+                        }
+                        else {
+                           alert("Passwords do not match.");
+                        }
+                     }
+                  });
+               </script>
+            </div>
+         </section>
+      </div>
+
+      <div class="my-orders">
+         <section>
+            <div id="close-orders"><span>Close</span></div>
+            <h3 class="title">Our orders </h3>
+            <div class="box">
+               <p>Placed on : <span>04/11/2024</span> </p>
+               <p>Name : <span>Surya</span> </p>
+               <p>Number : <span>9012365478</span></p>
+               <p>Address : <span>Flat no. 123, bulding no. 2, Kumbakonam , Tamilnadu, India - 612001</span></p>
+               <p>Payment method : <span>Cash on delivery</span></p>
+               <p>Your orders : <span>Belgium Waffles ₹249/- x 1</span></p>
+               <p>Total price : <span> ₹249/-</span></p>
+               <p>Payment status : <span style="color: var(--red);">Pending</span> </p>
+            </div>
+            <div class="box">
+               <p>Placed on : <span>05/11/2024</span> </p>
+               <p>Name : <span>Anushya</span> </p>
+               <p>Number : <span>9874563210</span></p>
+               <p>Address : <span>Flat no. 27, bulding no. 12, Kumbakonam , Tamilnadu, India - 612001</span></p>
+               <p>Payment method : <span>Google pay</span></p>
+               <p>Your orders : <span>Choco cookies ₹99/- x 1</span></p>
+               <p>Total price : <span> ₹99/-</span></p>
+               <p>Payment status : <span style="color: var(--red);">Paid</span> </p>
+            </div>
+         </section>
+      </div>
+
+      <div class="shopping-cart">
+         <section>
+            <div id="close-cart"><span>Close</span></div>
+            <div class="box">
+               <a class="fas fa-times"></a>
+               <img src="order1.png" alt="choco cookie">
+               <div class="content">
+                  <p>Choco Cookies<span>(  ₹99/- x 2 )</span></p>
+                  <form action="" method="post">
+                     <input type="number" class="qty" name="qty" min="1" value="2" max="100">
+                     <button type="submit" class="fas fa-edit" name="update_qty"></button>
+                  </form>
+               </div>
+            </div>
+            <div class="box">
+               <a class="fas fa-times"></a>
+               <img src="order2.jpg" alt="belgium waffles">
+               <div class="content">
+                  <p>Belgium Waffles<span>(  ₹249/- x 1 )</span></p>
+                  <form action="" method="post">
+                     <input type="number" class="qty" name="qty" min="1" value="1" max="100">
+                     <button type="submit" class="fas fa-edit" name="update_qty"></button>
+                  </form>
+               </div>
+            </div>
+            <div class="box">
+               <a class="fas fa-times"></a>
+               <img src="order3.jpg" alt="frosted doughnuts">
+               <div class="content">
+                  <p>Frosted Doughnuts<span>(  ₹199/- x 1 )</span></p>
+                  <form action="" method="post">
+                     <input type="number" class="qty" name="qty" min="1" value="1" max="100">
+                     <button type="submit" class="fas fa-edit" name="update_qty"></button>
+                  </form>
+               </div>
+            </div>
+            <a href="#order" class="btn">Order now</a>
+         </section>
+      </div>
+
+      <div class="home-bg">
+         <section class="home" id="home">
+            <div class="slide-container">
+               <div class="slide active">
+                  <div class="image">
+                     <img src="homeCookie.png" alt="" height="600px" width="650px">
+                  </div>
+                  <div class="content">
+                     <h3>Home Made Cookies</h3>
+                     <div class="fas fa-angle-left" onclick="prev()"></div>
+                     <div class="fas fa-angle-right" onclick="next()"></div>
+                  </div>
+               </div>
+               <div class="slide">
+                  <div class="image">
+                     <img src="homeWaffle.png" alt="" height="600px" width="650px">
+                  </div>
+                  <div class="content">
+                     <h3>Belgium Waffles</h3>
+                     <div class="fas fa-angle-left" onclick="prev()"></div>
+                     <div class="fas fa-angle-right" onclick="next()"></div>
+                  </div>
+               </div>
+               <div class="slide">
+                  <div class="image">
+                     <img src="homePastry.png" alt="" height="600px" width="650px">
+                  </div>
+                  <div class="content">
+                     <h3>Delicious Pastries</h3>
+                     <div class="fas fa-angle-left" onclick="prev()"></div>
+                     <div class="fas fa-angle-right" onclick="next()"></div>
+                  </div>
+               </div>
+            </div>
+         </section>
+      </div>
+
+      <section class="about">
+         <div class="box-container">
+            <div class="box">
+               <img src="https://images.pexels.com/photos/14133141/pexels-photo-14133141.jpeg?auto=compress&cs=tinysrgb&w=600" alt="cookies">
+               <h3>Cookies</h3>
+               <p>Cookies are delightful, bite-sized treats that come in a variety of flavors and textures, from crispy chocolate chip to chewy oatmeal raisin. 
+                  These versatile snacks can be enjoyed with a glass of milk, a cup of coffee, or simply on their own, making them a favorite for all ages. 
+                  Whether homemade or store-bought, cookies always bring a touch of comfort and sweetness to any moment. 🍪</p>
+               <a href="https://en.wikipedia.org/wiki/Cookie" class="btn">Visit</a>
+            </div>
+            <div class="box">
+               <img src="https://images.pexels.com/photos/11714564/pexels-photo-11714564.jpeg?auto=compress&cs=tinysrgb&w=600" alt="waffles">
+               <h3>Waffles</h3>
+               <p>Waffles are a beloved breakfast treat, known for their crispy exterior and fluffy interior, 
+                  typically adorned with deep pockets perfect for butter. 
+                  Originating from Belgium, waffles have become a versatile dish enjoyed around the world, with variations ranging from sweet to savory. 
+                  Whether topped with fresh fruit, whipped cream, waffles offer a delightful start to any day. 🧇</p>
+               <a href="https://en.wikipedia.org/wiki/Waffle" class="btn">Visit</a>
+            </div>
+            <div class="box">
+               <img src="https://images.pexels.com/photos/783277/pexels-photo-783277.jpeg?auto=compress&cs=tinysrgb&w=600" alt="pastries">
+               <h3>Pastries</h3>
+               <p>Pastries are delightful baked goods, crafted with layers of buttery, flaky dough that often envelop sweet or savory fillings. 
+                  Originating from various culinary traditions, these treats range from delicate croissants and Danishes to hearty meat-filled pies. 
+                  Whether enjoyed as a breakfast indulgence, a midday snack, or a dessert, pastries bring a touch of elegance and joy to any occasion. 🥐</p>
+               <a href="https://en.wikipedia.org/wiki/Pastry" class="btn">Visit</a>
+            </div>
+         </div>
+      </section>
+
+      <section id="menu" class="menu">
+         <h1 class="heading">Signature menu</h1>
+         <div class="card1">
+            <img src="menu1.jpg" alt="Card Image">
+            <div class="card1-content">
+               <h3>Double Chocolate Espresso Cookies</h3>
+               <p>These cookies are crafted with high-quality dark chocolate and a hint of espresso powder, making them rich, indulgent, and slightly bittersweet.
+                  Baked to perfection with a chewy center and crispy edges, they're perfect for both chocolate and coffee lovers. Finished with a sprinkle of sea salt,
+                  each bite balances sweetness and depth, making them an unforgettable treat.</p>
+               <a href="menu1.pdf">Recipe</a>
+            </div>
+         </div>
+         <div class="card1">
+            <div class="card1-content">
+               <h3>Lemon Zest Sugar Cookies</h3>
+               <p>A refreshingly zesty twist on the traditional sugar cookie, these delicate treats are infused with fresh lemon zest and a hint of vanilla. 
+                  Soft, buttery, and slightly crisp around the edges, they're lightly dusted with powdered sugar for a bright, citrusy flavor that's perfect for any season. 
+                  A perfect combination of sweet and tangy for those who enjoy something a bit different.</p>
+               <a href="menu2.pdf">Recipe</a>
+            </div>
+            <img src="menu2.jpg" alt="Card Image">
+         </div>
+         <div class="card1">
+            <img src="menu3.jpg" alt="Card Image">
+            <div class="card1-content">
+               <h3>Maple Pecan Waffle Delight</h3>
+               <p>Our signature waffles are a fusion of warmth and crunch, featuring pure maple syrup folded into the batter and topped with caramelized pecans. 
+                  Lightly crispy on the outside and soft inside, these waffles are served warm with a drizzle of maple glaze and a dusting of powdered sugar.
+                  It's a breakfast classic elevated with the nutty richness of pecans for an indulgent treat.</p>
+               <a href="menu3.pdf">Recipe</a>
+            </div>
+         </div>
+         <div class="card1">
+            <div class="card1-content">
+               <h3>Salted Caramel Brownie Bites</h3>
+               <p>These rich, fudgy brownie bites feature a gooey salted caramel center, providing a surprise burst of flavor. 
+                  Made with premium cocoa, they have a dense, chocolatey texture balanced with a hint of sea salt on top. 
+                  These small but decadent treats pack a lot of flavor, making them ideal for satisfying a sweet craving in just a few bites.</p>
+               <a href="menu4.pdf">Recipe</a>
+            </div>
+            <img src="menu4.webp" alt="Card Image">
+         </div>
+         <div class="card1">
+            <img src="menu5.webp" alt="Card Image">
+            <div class="card1-content">
+               <h3>Classic French Butter Croissants</h3>
+               <p>Baked fresh each morning, these croissants are made with layers upon layers of buttery, flaky dough using the traditional French lamination technique. 
+                  Lightly golden on the outside with a delicate, airy inside, each bite is a delightful balance of crunch and softness. 
+                  Their rich flavor is a testament to quality butter and patience in the baking process.</p>
+               <a href="menu5.pdf">Recipe</a>
+            </div>
+         </div>
+         <div class="card1">
+            <div class="card1-content">
+               <h3>Cinnamon Roll Waffles</h3>
+               <p>A breakfast masterpiece that combines two beloved favorites: the waffle and the cinnamon roll. 
+                  These waffles are swirled with cinnamon sugar and topped with a classic cream cheese glaze, delivering all the comforting flavors of a cinnamon roll in a waffle form. 
+                  Fluffy yet slightly crisp, these waffles are best enjoyed fresh off the griddle.</p>
+               <a href="menu6.pdf">Recipe</a>
+            </div>
+            <img src="menu6.jpg" alt="Card Image">
+         </div>
+         <div class="card1">
+            <img src="menu7.jpg" alt="Card Image">
+            <div class="card1-content">
+               <h3>Almond Raspberry Linzer Pastries</h3>
+               <p>A refined, almond-based pastry filled with homemade raspberry jam, these Linzer pastries are delicate and flavorful. 
+                  They feature a nutty, crumbly texture with a lightly sweet raspberry filling that's both fruity and vibrant. 
+                  Topped with a lattice pattern and a dusting of powdered sugar, these pastries are as visually appealing as they are delicious.</p>
+               <a href="menu7.pdf">Recipe</a>
+            </div>
+         </div>
+      </section>
+
+      <section class="about" id="about">
+         <h1 class="heading">about us</h1>
+         <div class="box-container">
+            <div class="box">
+               <img src="about1.webp" alt="our story">
+               <h3>Our Story</h3>
+               <p>Founded in 2020, GIN Bakers began with a vision to create baked goods that bring joy and comfort. Starting with family recipes,
+                  we've grown from a small kitchen to a beloved bakery known for quality and flavor in every bite. Our treats are crafted to make life's moments sweeter and more memorable.</p>
+            </div>
+            <div class="box">
+               <img src="about2.webp" alt="our ingredients">
+               <h3>Our Ingredients</h3>
+               <p>We believe that exceptional taste begins with exceptional ingredients. That's why we carefully select the finest local and organic ingredients, from creamy butter to fresh fruits, 
+                  ensuring that every bite is packed with genuine flavor. With no artificial additives, our treats are as wholesome as they are delicious.</p>
+            </div>
+            <div class="box">
+               <img src="about3.avif" alt="our mission">
+               <h3>Our Mission</h3>
+               <p>Our mission is simple: to bring joy to your everyday life with treats that are crafted with care and passion. We're honored to be a part of your celebrations, small or big, 
+                  by delivering baked goods that make each occasion special. At GIN Bakers, every bite is a little taste of happiness.</p>
+            </div>
+         </div>
+      </section>
+
+      <section class="order" id="order">
+         <h1 class="heading">Order now</h1>
+         <form action="" method="post" id="orderForm">
+            <div class="display-orders">
+               <p>Choco Cookies<span>(₹99/- x 2 )</span></p>
+               <p>Belgium Waffles<span>(  ₹249/- x 1 )</span></p>
+               <p>Frosted Doughnuts<span>(  ₹199/- x 1)</span></p>
+            </div>
+            <div class="flex">
+               <div class="inputBox">
+                  <span>Your name :</span>
+                  <input type="text" name="name" class="box" required placeholder="Enter your name" maxlength="20">
+               </div>
+               <div class="inputBox">
+                  <span>Your number :</span>
+                  <input type="number" name="number" class="box" required placeholder="+91" minlength="10" maxlength="10">
+               </div>
+               <div class="inputBox">
+                  <span>Payment method</span>
+                  <select name="method" class="box">
+                     <option value="cash on delivery">Cash on delivery</option>
+                     <option value="credit card">Credit card</option>
+                     <option value="credit card">Debit card</option>
+                     <option value="paytm">Paytm</option>
+                     <option value="paypal">Google pay</option>
+                     <option value="credit card">Phonepe</option>
+                  </select>
+               </div>
+               <div class="inputBox">
+                  <span>Address line 01 :</span>
+                  <input type="text" name="flat" class="box" required placeholder="e.g. Flat number" maxlength="50">
+               </div>
+               <div class="inputBox">
+                  <span>Address line 02 :</span>
+                  <input type="text" name="street" class="box" required placeholder="e.g. Street name" maxlength="50">
+               </div>
+               <div class="inputBox">
+                  <span>Pin code :</span>
+                  <input type="number" name="pin_code" class="box" required placeholder="e.g. 123456" minlength="6" maxlength="6">
+               </div>
+            </div>
+            <input type="submit" value="order now" class="btn" name="order">
+         </form>
+         <script>
+            document.getElementById("orderForm").addEventListener("submit", function(event) {
+               event.preventDefault();
+            
+               const name = event.target.name.value;
+               const number = event.target.number.value;
+               const method = event.target.method.value;
+               const flat = event.target.flat.value;
+               const street = event.target.street.value;
+               const pincode = event.target.pin_code.value;
+            
+               if (name && number && method && flat && street && pincode) {
+                  if(number.length===10)
+                  {
+                     if(pincode.length===6)
+                     {
+                        alert("Your order is placed.");
+                        event.target.reset();
+                     }
+                     else
+                        alert("Invalid pin number.Kindly check your pin code.");
+                  }
+                  else
+                     alert("Invalid mobile number.Kindly check your mobile number.");
+               }
+            });
+         </script>
+      </section>
+
+      <section class="faq" id="faq">
+         <h1 class="heading">FAQ</h1>
+         <div class="accordion-container">
+            <div class="accordion active">
+               <div class="accordion-heading">
+                  <span>How does it work?</span>
+                  <i class="fas fa-angle-down"></i>
+               </div>
+               <p class="accrodion-content">
+                  Our bakery offers a thoughtfully curated menu featuring unique, high-quality baked goods like cookies, waffles, and pastries.
+               </p>
+            </div>
+            <div class="accordion">
+               <div class="accordion-heading">
+                  <span>How long does it take for delivery?</span>
+                  <i class="fas fa-angle-down"></i>
+               </div>
+               <p class="accrodion-content">
+                  <b>Local Deliveries:</b><br>
+                     Orders are typically delivered within 30 to 60 minutes, depending on the customer's location and the complexity of the order.<br>
+
+                  <b>Customized Orders:</b><br>
+                     For special or bulk orders (e.g., personalized cakes or large batches of baked goods), delivery may take 2 to 4 hours or as communicated during order confirmation.<br>
+
+                  <b>Peak Times:</b><br>
+                     During busy hours or festive seasons, delivery times might extend slightly, but we always strive to keep customers informed about any delays.<br>
+               </p>
+            </div>
+            <div class="accordion">
+               <div class="accordion-heading">
+                  <span>Can I order for huge parties?</span>
+                  <i class="fas fa-angle-down"></i>
+               </div>
+               <p class="accrodion-content">
+                  Yes, we accepts large orders for parties. 
+                  Place your order 2-3 days in advance to ensure freshness and timely preparation. 
+                  Customizations, bulk discounts, and delivery services are available. 
+                  Contact us to plan your order! 🎉🍰
+               </p>
+            </div>
+            <div class="accordion">
+               <div class="accordion-heading">
+                  <span>How much protein it contains?</span>
+                  <i class="fas fa-angle-down"></i>
+               </div>
+               <p class="accrodion-content">
+                  <b>Cookies:</b> Around <b>2-4g of protein</b> per serving (depending on ingredients like nuts or chocolate).<br>
+                  <b>Waffles:</b> Typically <b>4-6g of protein</b> per waffle.<br>
+                  <b>Pastries:</b> Generally <b>3-5g of protein</b> per serving, depending on the filling and recipe.<br>
+               </p>
+            </div>
+            <div class="accordion">
+               <div class="accordion-heading">
+                  <span>Is it cooked with oil?</span>
+                  <i class="fas fa-angle-down"></i>
+               </div>
+               <p class="accrodion-content">
+                  Most of our baked goods, such as cookies, pastries, and waffles, are baked and not cooked with oil. 
+                  However, some recipes may include small amounts of butter, oil, or other fats to enhance flavor and texture.
+                  For detailed ingredient information, please check the product recipe or contact us directly.
+               </p>
+            </div>
+         </div>
+      </section>
+
+      <section class="footer">
+         <div class="box-container">
+            <div class="box">
+               <i class="fas fa-phone"></i>
+               <h3>phone number</h3>
+               <p>+91 9874563210</p>
+               <p>+91 7894563210</p>
+            </div>
+            <div class="box">
+               <i class="fas fa-map-marker-alt"></i>
+               <h3>our address</h3>
+               <p>Kumbakonam, Tamilnadu, India - 612001</p>
+            </div>
+            <div class="box">
+               <i class="fas fa-clock"></i>
+               <h3>opening hours</h3>
+               <p>10.30am to to 12.30pm</p>
+               <p>4.30pm to to 10.30pm</p>
+            </div>
+            <div class="box">
+               <i class="fas fa-envelope"></i>
+               <h3>email address</h3>
+               <p>abc1@gmail.com</p>
+               <p>abc2@gmail.com</p>
+            </div>
+         </div>
+         <div class="credit">
+            &copy; copyright @ 2024 by <span>Nithiya Manoharan</span> | all rights reserved!
+         </div>
+      </section>
+
+      <script src="script.js"></script>
+
+   </body>
+</html>
